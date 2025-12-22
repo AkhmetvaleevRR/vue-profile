@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, defineOptions } from 'vue';
+import { ref, onMounted } from 'vue';
 
 defineOptions({
   name: 'BestiaryView'
