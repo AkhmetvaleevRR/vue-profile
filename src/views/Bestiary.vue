@@ -18,6 +18,7 @@ const error = ref<string | null>(null);
 onMounted(async () => {
   try {
     const response = await fetch('https://www.dnd5eapi.co/api/monsters');
+    console.log(response);
     if (!response.ok) {
       throw new Error('Failed to fetch monsters');
     }
