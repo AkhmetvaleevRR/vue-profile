@@ -17,11 +17,12 @@ const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
-    const response = await fetch('https://www.dnd5eapi.co/api/monsters/');
+    const response = await fetch('https://www.dnd5eapi.co/api/classes/'); //Заменил пока на классы т.к. API монстров не подгружается
     if (!response.ok) {
       throw new Error('Failed to fetch monsters');
     }
     const data = await response.json();
+    console.log(data)
     monsters.value = data.results;
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'An error occurred';
