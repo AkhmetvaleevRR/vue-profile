@@ -1,0 +1,45 @@
+$desktop: 1200px;
+$tablet: 768px;
+$mobile: 480px;
+$mobile-small: 400px;
+
+// --- Colors ---
+
+// Brand & Functional
+$primary: #42b883;
+$primary-hover: #3aa876;
+$secondary: #2c3e50;
+
+$danger: #c0392b;
+$warning: #f39c12;
+$success: #27ae60;
+$success-hover: #2ecc71;
+$gold: #f1c40f;
+
+// Neutrals
+$white: #ffffff;
+$black: #000000;
+
+$gray-100: #fdfbf7; // Paper light
+$gray-200: #eeeeee;
+$gray-300: #e0e0e0;
+$gray-400: #cccccc;
+$gray-500: #aaaaaa;
+$gray-600: #999999;
+$gray-700: #888888;
+$gray-800: #555555;
+$gray-900: #333333;
+
+// Backgrounds
+$bg-deep: #121212;
+$bg-dark: #1a1a1a;
+$bg-card: #2d2d2d;
+$bg-input: #3d3d3d;
+$bg-keyboard: #222222;
+$bg-paper: #fdfbf7;
+$bg-paper-alt: #f0e8d8;
+
+// Borders
+$border-dark: #444444;
+$border-paper: #d3c6b1;
+$border-paper-shadow: #c0b8a8;

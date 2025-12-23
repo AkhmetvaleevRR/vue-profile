@@ -142,147 +142,170 @@ const cycleSkinColor = (direction: number) => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../assets/styles/variables' as *;
+
 .dnd-sheet-container {
   display: flex;
   justify-content: center;
-  background-color: #2c3e50;
+  background-color: $secondary;
   min-height: 100vh;
   font-family: 'Courier New', Courier, monospace;
-}
 
-.paper-sheet {
-  background-color: #fdfbf7;
-  width: 100%;
-  max-width: 800px;
-  padding: 2rem;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  border: 1px solid #d3c6b1;
-}
+  .paper-sheet {
+    background-color: $bg-paper;
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid $border-paper;
 
-.sheet-header {
-  display: flex;
-  gap: 1rem;
-  border-bottom: 2px solid #333;
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
-}
+    .sheet-header {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 2px solid $gray-900;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
 
-.header-block {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
+      .header-block {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
 
-.header-block.small {
-  flex: 0 0 80px;
-}
+        &.small {
+          flex: 0 0 80px;
+        }
+      }
 
-.handwritten-input, .static-value {
-  font-size: 1.2rem;
-  border: none;
-  border-bottom: 1px solid #999;
-  background: transparent;
-  font-family: inherit;
-  padding: 0.2rem 0;
-}
+      .handwritten-input,
+      .static-value {
+        font-size: 1.2rem;
+        border: none;
+        border-bottom: 1px solid $gray-600;
+        background: transparent;
+        font-family: inherit;
+        padding: 0.2rem 0;
+      }
+    }
 
-.sheet-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
+    .sheet-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
 
-.skills-list {
-  list-style: none;
-  padding: 0;
-}
+      .skills-section {
+        .skills-list {
+          list-style: none;
+          padding: 0;
 
-.skill-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.8rem;
-  justify-content: space-between;
-}
+          .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            justify-content: space-between;
 
-.skill-name {
-  font-weight: bold;
-  width: 100px;
-}
+            .skill-name {
+              font-weight: bold;
+              width: 100px;
+            }
 
-.skill-dots {
-  display: flex;
-  gap: 4px;
-}
+            .skill-dots {
+              display: flex;
+              gap: 4px;
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border: 1px solid #333;
-  border-radius: 50%;
-}
+              .dot {
+                width: 12px;
+                height: 12px;
+                border: 1px solid $gray-900;
+                border-radius: 50%;
 
-.dot.filled {
-  background-color: #c0392b;
-}
+                &.filled {
+                  background-color: $danger;
+                }
+              }
+            }
 
-.skill-mod {
-  font-weight: bold;
-  color: #7f8c8d;
-  width: 30px;
-  text-align: right;
-}
+            .skill-mod {
+              font-weight: bold;
+              color: $gray-700;
+              width: 30px;
+              text-align: right;
+            }
+          }
+        }
 
-.character-preview {
-  border: 2px solid #333;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #eee;
-  margin-bottom: 1rem;
-}
+        .roll-dice-group {
+          align-items: center;
+          margin-top: 1rem;
+        }
+      }
 
-.controls {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+      .character-section {
+        .character-preview {
+          border: 2px solid $gray-900;
+          height: 200px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $gray-200;
+          margin-bottom: 1rem;
+        }
 
-.control-group {
-  display: flex;
-  flex-direction: column;
-}
+        .controls {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
 
-.skin-selector {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+          .control-group {
+            display: flex;
+            flex-direction: column;
 
-.roll-dice-group {
-  align-items: center;
-  margin-top: 1rem;
-}
+            .skin-selector {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
 
-.nav-btn {
-  background: #eee;
-  border: 1px solid #333;
-  cursor: pointer;
-  padding: 0.2rem 0.5rem;
-}
+              .nav-btn {
+                background: $gray-200;
+                border: 1px solid $gray-900;
+                cursor: pointer;
+                padding: 0.2rem 0.5rem;
+              }
 
-.color-swatch {
-  width: 50px;
-  height: 24px;
-  border: 2px solid #333;
-}
+              .color-swatch {
+                width: 50px;
+                height: 24px;
+                border: 2px solid $gray-900;
+              }
+            }
+          }
+        }
+      }
+    }
 
-h2 {
-  border-bottom: 2px solid #333;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  font-size: 1.1rem;
+    h2 {
+      border-bottom: 2px solid $gray-900;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .paper-sheet {
+      padding: 1rem;
+
+      .sheet-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .sheet-body {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  }
 }
 </style>

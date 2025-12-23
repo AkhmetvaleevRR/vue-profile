@@ -119,65 +119,123 @@ const setActive = (field: 'username' | 'password') => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../assets/styles/variables' as *;
+
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: $bg-dark;
+  color: $white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-.auth-card {
-  background: #2d2d2d;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  max-width: 500px;
-  text-align: center;
-}
+  .auth-card {
+    background: $bg-card;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
 
-h2 {
-  margin: 0;
-  color: #42b883;
-}
+    h2 {
+      margin: 0;
+      color: $primary;
+    }
 
-.subtitle {
-  color: #888;
-  margin-bottom: 2rem;
-  font-size: 0.9rem;
-}
+    .subtitle {
+      color: $gray-700;
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+    }
 
-.form-group {
-  margin-bottom: 1.5rem;
-  text-align: left;
-}
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
 
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.8rem;
-  color: #aaa;
-  transition: color 0.3s;
-}
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem;
+        color: $gray-500;
+        transition: color 0.3s;
 
-label.active {
-  color: #42b883;
-}
+        &.active {
+          color: $primary;
+        }
+      }
 
-input {
-  width: -webkit-fill-available;
-  padding: 10px;
-  background: #3d3d3d;
-  border: 2px solid transparent;
-  border-radius: 6px;
-  color: #fff;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s;
+      input {
+        width: -webkit-fill-available;
+        padding: 10px;
+        background: $bg-input;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        color: $white;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+
+        &:focus {
+          border-color: $primary;
+        }
+      }
+    }
+
+    .virtual-keyboard {
+      margin-top: 2rem;
+      background: $bg-keyboard;
+      padding: 1rem;
+      border-radius: 8px;
+      user-select: none;
+
+      .keyboard-row {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin-bottom: 6px;
+
+        &.actions {
+          margin-top: 10px;
+        }
+      }
+
+      .key-btn {
+        width: 36px;
+        height: 40px;
+        background: $border-dark;
+        border: none;
+        border-radius: 4px;
+        color: $white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.1s, transform 0.1s;
+        text-transform: uppercase;
+
+        &:active {
+          background: $primary;
+          transform: scale(0.95);
+        }
+
+        &.action {
+          width: auto;
+          padding: 0 1.5rem;
+          font-size: 0.9rem;
+        }
+
+        &.primary {
+          background: $primary;
+          color: $bg-dark;
+
+          &:hover {
+            background: $primary-hover;
+          }
+        }
+      }
+    }
+  }
 }
 
 .flip-move {
@@ -199,55 +257,18 @@ input {
   position: absolute;
 }
 
-input:focus {
-  border-color: #42b883;
+@media (max-width: $mobile) {
+  .auth-card {
+    padding: 1rem;
+  }
+
+  .virtual-keyboard {
+    .key-btn {
+      width: 30px;
+      height: 35px;
+      font-size: 0.8rem;
+    }
+  }
 }
 
-.virtual-keyboard {
-  margin-top: 2rem;
-  background: #222;
-  padding: 1rem;
-  border-radius: 8px;
-  user-select: none;
-}
-
-.keyboard-row {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 6px;
-}
-
-.key-btn {
-  width: 36px;
-  height: 40px;
-  background: #444;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.1s, transform 0.1s;
-  text-transform: uppercase;
-}
-
-.key-btn:active {
-  background: #42b883;
-  transform: scale(0.95);
-}
-
-.key-btn.action {
-  width: auto;
-  padding: 0 1.5rem;
-  font-size: 0.9rem;
-}
-
-.key-btn.primary {
-  background: #42b883;
-  color: #1a1a1a;
-}
-
-.key-btn.primary:hover {
-  background: #3aa876;
-}
 </style>

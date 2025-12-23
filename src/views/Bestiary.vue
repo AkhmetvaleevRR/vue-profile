@@ -54,66 +54,76 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../assets/styles/variables' as *;
+
 .bestiary-container {
   display: flex;
   justify-content: center;
   padding: 4rem 2rem;
-  background-color: #1a1a1a;
-  color: #e0e0e0;
+  background-color: $bg-dark;
+  color: $gray-300;
   min-height: 100vh;
   font-family: 'Courier New', Courier, monospace;
-}
 
-.bestiary-content {
-  width: 100%;
-  max-width: 700px;
-}
+  .bestiary-content {
+    width: 100%;
+    max-width: 700px;
 
-header {
-  text-align: center;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #42b883;
-  padding-bottom: 1rem;
-}
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid $primary;
+      padding-bottom: 1rem;
 
-header h1 {
-  color: #42b883;
-  margin: 0;
-}
+      h1 {
+        color: $primary;
+        margin: 0;
+      }
+    }
 
-.loading, .error {
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 2rem;
-}
+    .loading, .error {
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 2rem;
+    }
 
-.error {
-  color: #c0392b;
-}
+    .error {
+      color: $danger;
+    }
 
-.monster-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-}
+    .monster-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
 
-.monster-item a {
-  display: block;
-  padding: 1rem;
-  background: #2d2d2d;
-  border: 1px solid #444;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #e0e0e0;
-  transition: background-color 0.2s, transform 0.2s;
-}
+      .monster-item a {
+        display: block;
+        padding: 1rem;
+        background: $bg-card;
+        border: 1px solid $border-dark;
+        border-radius: 4px;
+        text-decoration: none;
+        color: $gray-300;
+        transition: background-color 0.2s, transform 0.2s;
 
-.monster-item a:hover {
-  background-color: #3c3c3c;
-  transform: translateY(-2px);
+        &:hover {
+          background-color: $bg-input;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    padding: 2rem 1rem;
+
+    .monster-list {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
 }
 </style>
