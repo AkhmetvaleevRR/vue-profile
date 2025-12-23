@@ -17,6 +17,7 @@ const isMenuOpen = ref(false);
       <RouterLink to="/auth" @click="isMenuOpen = false">Secure Auth</RouterLink>
       <RouterLink to="/product" @click="isMenuOpen = false">Product Page</RouterLink>
       <RouterLink to="/bestiary" @click="isMenuOpen = false">Bestiary</RouterLink>
+      <RouterLink to="/holocard" @click="isMenuOpen = false">HoloCard</RouterLink>
     </div>
   </nav>
   <RouterView />

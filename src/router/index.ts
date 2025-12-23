@@ -3,6 +3,7 @@ import DndResume from '../views/DndResume.vue'
 import VirtualKeyboardAuth from '../views/VirtualKeyboardAuth.vue'
 import ProductPage from '../views/ProductPage.vue'
 import Bestiary from '../views/Bestiary.vue'
+import Holocard from '../views/HoloCard.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/bestiary',
       name: 'bestiary',
       component: Bestiary,
+    },
+    {
+      path: '/holocard',
+      name: 'holoCard',
+      component: Holocard,
     },
   ],
 })
